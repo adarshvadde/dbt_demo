@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: src 
+    database: sourcedb
+    schema: mk_mall
+    tables:
+      - name: customers
+      - name: nations
+      - name: regions
+     
