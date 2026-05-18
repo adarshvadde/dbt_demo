@@ -22,8 +22,6 @@ models:
               arguments:
                 values: ['AFRICA','AMERICA','ASIA','EUROPE','MIDDLE EAST']
                 
-  - name: stg_regions
-    columns:
       - name: region_id
         data_tests:  
           - relationships:

@@ -1,10 +1,6 @@
 WITH customers AS (
     SELECT 
-        CUSTOMER_ID,
-        NATION_ID,
-        NAME,
-        ADDRESS,
-        PHONE_NUMBER 
+        *
     FROM {{ ref('stg_customers') }}
 ),
 
