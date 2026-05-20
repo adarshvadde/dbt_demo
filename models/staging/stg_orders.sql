@@ -1,5 +1,3 @@
---select customer_id,account_balance from {{ ref('customer')}} where account_balance between 100 and 500
-
 {{ config(materialized='view') }}
 
 with source as (

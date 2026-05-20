@@ -43,8 +43,9 @@ models:
     staging:
       +materialized: table
     inter:
-      +materialized: table
-      +transient: false
+      +materialized: view
+      #+transient: false
+      +schema: DBT_AVADDE_INTER
 
 data_tests:
   +store_failures: true

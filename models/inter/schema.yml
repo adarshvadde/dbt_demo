@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  
+  - name: int_customer
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+  
+  
+  
+
+

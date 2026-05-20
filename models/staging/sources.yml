@@ -9,4 +9,8 @@ sources:
       - name: nations
       - name: regions
       - name: orders
+      - name: PARTSUPPS
+      - name: suppliers
+      - name: parts
+      - name: lineitems
      
