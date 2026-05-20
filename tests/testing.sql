@@ -1,1 +1,2 @@
-select customer_id,account_balance from {{ ref('customer')}} where account_balance between 100 and 500
+select  * from {{ ref('int_partsuppliers_stats')}} 
+where {{ compare('inventory_value_uro','inventory_value_usd')}} > 0.01

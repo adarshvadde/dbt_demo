@@ -1,0 +1,1 @@
+select  * from {{ ref('int_suppliers')}} where abs((inventory_value_uro / 0.86) - inventory_value_usd) > 0.01 

@@ -1,15 +1,69 @@
 version: 2
 
 models:
-  
-  - name: int_customer
+  # 1. stg_line_items
+  - name: stg_lineitems
+    description: "Staging model for order line items containing shipping dates, modes, and price metrics."
     columns:
-      - name: customer_id
-        data_tests:
+      - name: ORDER_ID
+        description: "{{ doc('ORDER_ID') }}"
+        tests:
           - unique
           - not_null
-  
-  
-  
+      - name: line_number
+        description: "{{ doc('line_number') }}"
+      - name: return_flag
+        description: "{{ doc('return_flag') }}"
+      - name: ship_date
+        description: "{{ doc('ship_date') }}"
+      - name: commit_date
+        description: "{{ doc('commit_date') }}"
+      - name: receipt_date
+        description: "{{ doc('receipt_date') }}"
+      - name: ship_mode
+        description: "{{ doc('ship_mode') }}"
+      - name: comment
+        description: "{{ doc('comment') }}"
+      - name: extended_price
+        description: "{{ doc('extended_price') }}"
+      - name: discount_percentage
+        description: "{{ doc('discount_percentage') }}"
 
+  # 2. stg_suppliers
+  - name: stg_suppliers
+    description: "Staging model for supplier profile, contact details, and financial account balance snapshot."
+    columns:
+      - name: supplier_id
+        description: "Primary key identifier for the supplier."
+        tests:
+          - unique
+          - not_null
+      - name: supplier_name
+        description: "{{ doc('supplier_name') }}"
+      - name: supplier_address
+        description: "{{ doc('supplier_address') }}"
+      - name: phone_number
+        description: "{{ doc('phone_number') }}"
+      - name: account_balance
+        description: "{{ doc('account_balance') }}"
 
+  # 3. stg_parts
+  - name: stg_parts
+    description: "Staging model for parts data including catalog details and baseline pricing information."
+    columns:
+      - name: part_id
+        description: "Primary key identifier for the part."
+        tests:
+          - unique
+          - not_null
+      - name: retail_price
+        description: "{{ doc('retail_price') }}"
+
+  # 4. stg_partsups (stg_part_suppliers)
+  - name: stg_partsups
+    description: "Staging relationship model mapping parts to suppliers along with current stock volume and costs."
+    columns:
+      - name: available_quantity
+        description: "{{ doc('available_quantity') }}"
+      - name: supplycost
+        description: "{{ doc('cost') }}" # Links directly to your {% docs cost %} block
