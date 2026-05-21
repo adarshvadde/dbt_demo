@@ -19,6 +19,7 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
+
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
@@ -38,5 +39,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   my_new_project:
     # Applies to all files under models/example/
-    example:
+   
+    staging:
       +materialized: table
+    inter:
+      +materialized: view
+      #+transient: false
+      +schema: DBT_AVADDE_INTER
+
+data_tests:
+  +store_failures: true
+  +schema: failures
+

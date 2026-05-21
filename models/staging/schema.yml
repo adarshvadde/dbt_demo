@@ -1,0 +1,46 @@
+version: 2
+
+models: 
+  - name: stg_nations
+    columns:
+      - name: nation_id
+        description: "Primary_key for stg_nations table"
+        data_tests: 
+          - unique
+            
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        description: "not null for stg_customer table"
+        data_tests:
+          - not_null
+          
+  - name: stg_regions
+    columns:
+      - name: name
+        description: "accepted values for stg_regions table"
+        data_tests:          
+          - accepted_values:
+              arguments:
+                values: ['AFRICA','AMERICA','ASIA','EUROPE','MIDDLE EAST']
+                
+      - name: region_id
+        description: "referstial integrity for stg_regions table"
+        data_tests:  
+          - relationships:
+              arguments: 
+                to: ref('stg_regions')
+                field: region_id
+  
+          
+          
+
+      
+          
+      
+          
+
+  
+          
+          
