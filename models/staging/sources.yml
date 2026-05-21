@@ -9,8 +9,16 @@ sources:
       - name: nations
       - name: regions
       - name: orders
+        config:
+          loaded_at_field: "CONVERT_TIMEZONE('UTC', O_ORDERDATE::timestamp)"
+
+          freshness:
+            warn_after: {count: 1, period: hour}
+            error_after: {count: 2, period: hour}
+              
       - name: PARTSUPPS
       - name: suppliers
       - name: parts
       - name: lineitems
+
      
