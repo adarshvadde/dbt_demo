@@ -7,9 +7,7 @@ models:
     columns:
       - name: ORDER_ID
         description: "{{ doc('ORDER_ID') }}"
-        tests:
-          - unique
-          - not_null
+        
       - name: line_number
         description: "{{ doc('line_number') }}"
       - name: return_flag

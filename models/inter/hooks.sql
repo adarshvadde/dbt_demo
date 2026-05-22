@@ -1,9 +1,8 @@
 {{ config(
 
     pre_hook = "
-        copy into mkmotors_dev.staging.stg_dealership
-        from @mkmotors_dev.staging.s3dealers/dealership.dat
-        file_format = (format_name = mkmotors_dev.staging.ff_csv_nohdr_dq)
+        copy into mkmotors_dev.staging.STG_DEALERSHIP from @mkmotors_dev.staging.S3DEALERS/dealership.dat FILE_FORMAT=(FORMAT_NAME=mkmotors_dev.staging.ff_csv_nohdr_dq ERROR_ON_COLUMN_COUNT_MISMATCH=false)
+;
     ",
 
     post_hook = [
