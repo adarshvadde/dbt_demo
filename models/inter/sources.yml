@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: srcs 
+    database: MKMOTORS_DEV
+    schema: STAGING
+    tables:
+      - name: STG_DEALERSHIP
+      
+
+     

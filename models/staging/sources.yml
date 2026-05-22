@@ -10,11 +10,10 @@ sources:
       - name: regions
       - name: orders
         config:
-          loaded_at_field: "CONVERT_TIMEZONE('UTC', O_ORDERDATE::timestamp)"
-
+          loaded_at_field: "O_ORDERDATE::timestamp"
           freshness:
-            warn_after: {count: 1, period: hour}
-            error_after: {count: 2, period: hour}
+            warn_after: {count: 1, period: day}   # Allows data up to 1 day
+            error_after: {count: 2, period: day}
               
       - name: PARTSUPPS
       - name: suppliers
